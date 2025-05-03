@@ -4,7 +4,7 @@ defmodule Hapesire.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Hapesire.Repo,
+      Hapesire.Repo,
       {Plug.Cowboy, scheme: :http, plug: HapesireWeb.PlugRouter, options: [port: 4000]}
     ]
 

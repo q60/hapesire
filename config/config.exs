@@ -4,7 +4,9 @@ config :ash_json_api,
   show_public_calculations_when_loaded?: false,
   authorize_update_destroy_with_error?: true
 
-config :hapesire, :ash_domains, [Hapesire.Quotations]
+config :hapesire,
+  ash_domains: [Hapesire.Quotations],
+  ecto_repos: [Hapesire.Repo]
 
 config :ash,
   allow_forbidden_field_for_relationships_by_default?: true,

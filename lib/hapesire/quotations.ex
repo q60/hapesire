@@ -6,6 +6,10 @@ defmodule Hapesire.Quotations do
       base_route "/quote", Hapesire.Quotations.Quote do
         index :random
       end
+
+      base_route "/quote/:lang", Hapesire.Quotations.Quote do
+        index :random
+      end
     end
   end
 
