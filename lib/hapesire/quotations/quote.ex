@@ -1,12 +1,13 @@
 defmodule Hapesire.Quotations.Quote do
-  @langs_regex ~r/en|ru/
-
+  @moduledoc false
   use Ash.Resource,
     domain: Hapesire.Quotations,
     extensions: [AshJsonApi.Resource],
     data_layer: AshSqlite.DataLayer
 
   require Ash.Sort
+
+  @langs_regex ~r/en|ru/
 
   json_api do
     type "quote"
@@ -29,19 +30,18 @@ defmodule Hapesire.Quotations.Quote do
       argument :lang, :string do
         allow_nil? true
 
-        constraints [
-          match: @langs_regex,
-          max_length: 2
-        ]
+        constraints match: @langs_regex,
+                    max_length: 2
       end
 
       get? true
 
       prepare fn query, _ ->
-        lang = case query.arguments do
-          args when args == %{} -> "en"
-          args -> args.lang
-        end
+        lang =
+          case query.arguments do
+            args when args == %{} -> "en"
+            args -> args.lang
+          end
 
         Ash.Query.set_context(query, %{data_layer: %{table: "quotes_#{lang}"}})
       end

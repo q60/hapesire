@@ -1,5 +1,6 @@
 defmodule HapesireTest do
   use ExUnit.Case
+
   doctest Hapesire
 
   test "greets the world" do
