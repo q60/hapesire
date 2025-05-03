@@ -1,5 +1,8 @@
 defmodule Hapesire.Quotations.Quote do
-  @moduledoc false
+  @moduledoc """
+  `Quote` resource.
+  """
+
   use Ash.Resource,
     domain: Hapesire.Quotations,
     extensions: [AshJsonApi.Resource],

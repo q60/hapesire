@@ -1,18 +1,13 @@
 defmodule Hapesire do
   @moduledoc """
-  Documentation for `Hapesire`.
+  Module with helper functions.
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Hapesire.hello()
-      :world
-
+  Returns port from config.
   """
-  def hello do
-    :world
+  @spec serve_port() :: non_neg_integer()
+  def serve_port do
+    Application.get_env(:hapesire, :port, 4000)
   end
 end

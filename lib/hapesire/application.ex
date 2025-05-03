@@ -6,7 +6,12 @@ defmodule Hapesire.Application do
   def start(_type, _args) do
     children = [
       Hapesire.Repo,
-      {Plug.Cowboy, scheme: :http, plug: HapesireWeb.PlugRouter, options: [port: 4000]}
+      {Plug.Cowboy,
+       scheme: :http,
+       plug: HapesireWeb.PlugRouter,
+       options: [
+         port: Hapesire.serve_port()
+       ]}
     ]
 
     opts = [strategy: :one_for_one, name: Hapesire.Supervisor]

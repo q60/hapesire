@@ -1,6 +1,10 @@
 defmodule Hapesire.Quotations do
-  @moduledoc false
-  use Ash.Domain, extensions: [AshJsonApi.Domain]
+  @moduledoc """
+  `Quotations` domain.
+  """
+
+  use Ash.Domain,
+    extensions: [AshJsonApi.Domain]
 
   alias Hapesire.Quotations.Quote
 
