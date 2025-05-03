@@ -1,4 +1,8 @@
 defmodule HapesireWeb.PlugRouter do
+  @moduledoc """
+  Main `Plug` router.
+  """
+
   use Plug.Router
 
   if Mix.env() == :dev do
@@ -7,14 +11,6 @@ defmodule HapesireWeb.PlugRouter do
 
   plug(:match)
   plug(:dispatch)
-
-  forward("/api/swaggerui",
-    to: OpenApiSpex.Plug.SwaggerUI,
-    init_opts: [
-      path: "/api/open_api",
-      default_model_expand_depth: 4
-    ]
-  )
 
   forward("/api/redoc",
     to: Redoc.Plug.RedocUI,
