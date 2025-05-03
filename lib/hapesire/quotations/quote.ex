@@ -1,16 +1,22 @@
 defmodule Hapesire.Quotations.Quote do
-  use Ash.Resource, domain: Hapesire.Quotations
+  use Ash.Resource, domain: Hapesire.Quotations, extensions: [AshJsonApi.Resource]
+
+  json_api do
+    type "quote"
+  end
 
   actions do
-    defaults [:read]
-
-    create :create
+    read :random
   end
 
   attributes do
-    uuid_primary_key :id
+    attribute :text, :string do
+      primary_key? true
+      allow_nil? false
+    end
 
-    attribute :text, :string
-    attribute :author, :string
+    attribute :author, :string do
+      allow_nil? true
+    end
   end
 end

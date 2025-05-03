@@ -1,5 +1,9 @@
 import Config
 
+config :ash_json_api,
+  show_public_calculations_when_loaded?: false,
+  authorize_update_destroy_with_error?: true
+
 config :hapesire, :ash_domains, [Hapesire.Quotations]
 
 config :ash,
@@ -18,6 +22,7 @@ config :spark,
     remove_parens?: true,
     "Ash.Resource": [
       section_order: [
+        :json_api,
         :resource,
         :code_interface,
         :actions,
@@ -34,7 +39,9 @@ config :spark,
         :identities
       ]
     ],
-    "Ash.Domain": [section_order: [:resources, :policies, :authorization, :domain, :execution]]
+    "Ash.Domain": [
+      section_order: [:json_api, :resources, :policies, :authorization, :domain, :execution]
+    ]
   ]
 
 import_config "#{config_env()}.exs"
