@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="static/styles/main.css">
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        hapësirë
+      </div>
+      <div id="gradient"><div/>
+    </header>
+
+    <main>
+      <div id="quote">
+        <p class="quote-text"><%= quote_text %></p>
+        <div>
+          <%= if quote_author != nil do %>
+            <p class="quote-author">
+              <a style="user-select: none;">&mdash; </a>
+              <%= quote_author %>
+            </p>
+          <% end %>
+          <a class="button" href="/">more</a>
+        </div>
+      </div>
+
+      <article>
+        <h4>A few words</h4>
+        <p>
+          <a class="name">hapësirë</a> is a collection of famous inspiring quotes by different authors.
+        </p>
+        <p>
+          Take a look at this unsophisticated basic website. Try pressing the <a class="secondary">more</a> button to see another quote. May you come across an expression that strikes a chord with you.
+        </p>
+        <p>
+          However, <a class="name">hapësirë</a> is not only a website, it has a <a href="https://jsonapi.org/" class="link">JSON:API</a> endpoint available at <a href="https://hapesire.hiiaka.xyz/api" class="link">https://hapesire.hiiaka.xyz/api</a>
+        </p>
+        <h4>About API</h4>
+        <p>
+          The following methods are supported:
+        </p>
+        <ol>
+          <li><a class="code">GET /api/quote</a></li>
+          <li><a class="code">GET /api/quote/:language</a></li>
+        </ol>
+        <p>
+          The next languages are available:
+        </p>
+        <ol>
+          <li><a class="code">en</a> - English</li>
+          <li><a class="code">ru</a> - Russian</li>
+        </ol>
+        <p>
+          The default language is English.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

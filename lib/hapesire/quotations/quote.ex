@@ -30,14 +30,14 @@ defmodule Hapesire.Quotations.Quote do
 
   actions do
     read :random do
+      get? true
+
       argument :lang, :string do
         allow_nil? true
 
         constraints match: @langs_regex,
                     max_length: 2
       end
-
-      get? true
 
       prepare fn query, _ ->
         lang =

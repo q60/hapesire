@@ -1,0 +1,193 @@
+/* IBM Plex fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wdth,wght@0,87.5,100..700;1,87.5,100..700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* phone specific stuff */
+@media screen and (width <=960px) {
+  body {
+    /* make the margin at the top and bottom smaller */
+    margin: 20px auto;
+  }
+}
+
+/* colors and whatnot */
+:root {
+  --primary-color: #E2AC55;
+  --secondary-color: #E5654A;
+  --tertiary-color: #C74B51;
+  --quaternary-color: #535E7D;
+  --text-color: #0F1419;
+  --text-color-light: #0F1419CC;
+  --bg-color: #EEF1F7;
+
+  --fonts-sans: "IBM Plex Sans", sans-serif;
+  --fonts-serif: "IBM Plex Serif", serif;
+  --fonts-mono: "IBM Plex Mono", monospace;
+}
+
+body {
+  margin: 40px auto;
+  max-width: 900px;
+  font-family: var(--fonts-sans);
+  font-size: 18px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  padding: 0 10px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fonts-serif);
+  color: var(--text-color-light);
+
+  padding-left: 0.8em;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+ol {
+  list-style-type: lower-roman;
+
+  li::marker {
+    color: var(--quaternary-color);
+  }
+}
+
+a.name {
+  font-family: var(--fonts-serif);
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+a.primary {
+  font-family: var(--fonts-mono);
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+a.secondary {
+  font-family: var(--fonts-mono);
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+a.link {
+  font-weight: 400;
+  color: var(--tertiary-color);
+  text-decoration: underline;
+}
+
+a.code {
+  font-family: var(--fonts-mono);
+  font-weight: 400;
+  color: var(--primary-color);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5em;
+
+  font-family: var(--fonts-serif);
+
+  #logo {
+    font-size: 2em;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1;
+    color: var(--primary-color);
+  }
+
+  #gradient {
+    background: linear-gradient(135deg,
+        var(--bg-color) 0%, var(--bg-color) calc(100% / 6),
+        var(--quaternary-color) calc(100% / 6), var(--quaternary-color) calc(100% / 6 * 2),
+        var(--primary-color) calc(100% / 6 * 2), var(--primary-color) calc(100% / 6 * 3),
+        var(--secondary-color) calc(100% / 6 * 3), var(--secondary-color) calc(100% / 6 * 4),
+        var(--tertiary-color) calc(100% / 6 * 4), var(--tertiary-color) calc(100% / 6 * 5),
+        var(--bg-color) calc(100% / 6 * 5), var(--bg-color) 100%);
+    width: 30%;
+  }
+
+  div {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+
+main {
+  margin: 4em auto;
+
+  #quote {
+    border-style: double;
+    border-width: 6px;
+    border-color: var(--primary-color);
+    padding: 1.5em 1.5em;
+    min-height: 10em;
+    position: relative;
+
+    font-family: var(--fonts-serif);
+    font-weight: 400;
+
+    .quote-text {
+      font-size: 1.5em;
+      font-style: italic;
+
+      margin: 0;
+    }
+
+    .quote-author {
+      color: var(--text-color-light);
+
+      font-size: 1.2em;
+      font-style: italic;
+
+      padding-left: 0.5em;
+
+      line-height: 1;
+    }
+
+    .button {
+      text-decoration: none;
+      color: var(--secondary-color);
+
+      font-size: 1em;
+      font-weight: 500;
+
+      border-style: solid;
+      border-width: 3px;
+      border-color: var(--secondary-color);
+
+      padding: 0.1em 0.35em;
+
+      position: absolute;
+      right: 1.5em;
+      bottom: 1.5em;
+    }
+  }
+
+  article {
+    font-size: 1.2em;
+    font-weight: 350;
+  }
+}
