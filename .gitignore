@@ -21,3 +21,7 @@ hapesire-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# sqlite temporary files
+/priv/quotes.db-wal
+/priv/quotes.db-shm
