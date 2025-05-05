@@ -91,6 +91,25 @@ span.secondary {
   color: var(--secondary-color);
 }
 
+a.button {
+  text-decoration: none;
+  color: var(--secondary-color);
+
+  display: inline-block;
+
+  font-family: var(--fonts-mono);
+  font-size: 1em;
+  font-weight: 500;
+
+  border-style: solid;
+  border-width: 3px;
+  border-color: var(--secondary-color);
+
+  height: 1.4em;
+  line-height: 1.4em;
+  padding: 0.1em 0.35em;
+}
+
 a.link {
   font-weight: 400;
   color: var(--tertiary-color);
@@ -167,22 +186,20 @@ main {
       line-height: 1;
     }
 
-    .button {
-      text-decoration: none;
-      color: var(--secondary-color);
+    #quote-buttons {
+      padding-top: 2em;
 
-      font-size: 1em;
-      font-weight: 500;
+      a.button#more {
+        position: absolute;
+        right: 1.5em;
+        bottom: 1.5em;
+      }
 
-      border-style: solid;
-      border-width: 3px;
-      border-color: var(--secondary-color);
-
-      padding: 0.1em 0.35em;
-
-      position: absolute;
-      right: 1.5em;
-      bottom: 1.5em;
+      a.button#language {
+        position: absolute;
+        left: 1.5em;
+        bottom: 1.5em;
+      }
     }
   }
 

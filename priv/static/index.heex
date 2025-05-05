@@ -9,9 +9,11 @@
   </head>
   <body>
     <header>
-      <div id="logo">
-        hapësirë
-      </div>
+      <a href="/" style="text-decoration: none;">
+        <div id="logo">
+          hapësirë
+        </div>
+      </a>
       <div id="gradient"><div/>
     </header>
 
@@ -25,26 +27,35 @@
               <%= quote_author %>
             </p>
           <% end %>
-          <a class="button" href="/">more</a>
+          <div id="quote-buttons">
+            <a id="language" class="button" href=<%= "/#{elem(locale, 1)}" %>>
+              <%= elem(locale, 1) %>
+            </a>
+            <a id="more" class="button" href=<%= "/#{elem(locale, 0)}" %>>
+              <%= translations.more %>
+            </a>
+          </div>
         </div>
       </div>
 
+        <!-- <div id="language-button"> -->
+        <!-- </div> -->
       <article>
-        <h4>A few words</h4>
+        <h4><%= translations.about %></h4>
         <p>
-          <span class="name">hapësirë</span> is a collection of famous inspiring quotes by different authors.
+          <span class="name">hapësirë</span> <%= translations.hapesire_is %>.
         </p>
         <p>
-          Take a look at this unsophisticated basic website. Try pressing the <span class="secondary">more</span> button to see another quote. May you come across an expression that strikes a chord with you.
+          <%= translations.look_at_this %> <span class="secondary"><%= translations.more %></span> <%= translations.button %>.
         </p>
         <p>
-          However, <span class="name">hapësirë</span> is not only a website, it has a <a href="https://jsonapi.org/" class="link">JSON:API</a> endpoint available at <a href="https://hapesire.kira.computer/api" class="link">https://hapesire.kira.computer/api</a>
+          <%= translations.however %> <span class="name">hapësirë</span> <%= translations.not_only %> <a href="https://jsonapi.org/" class="link">JSON:API</a> <%= translations.endpoint %> <a href="https://hapesire.kira.computer/api" class="link">https://hapesire.kira.computer/api</a>
         </p>
       </article>
       <article>
-        <h4>About API</h4>
+        <h4><%= translations.about_api %></h4>
         <p>
-          The following methods are supported:
+          <%= translations.methods %>:
         </p>
         <ol>
           <li><code>GET /api/quotes/random</code></li>
@@ -52,14 +63,14 @@
           <li><code>GET /api/quotes/get/:id</code></li>
         </ol>
         <p>
-          The next languages are available:
+          <%= translations.languages %>:
         </p>
         <ol>
-          <li><code>en</code> - English</li>
-          <li><code>ru</code> - Russian</li>
+          <li><code>en</code> &mdash; <%= translations.english %></li>
+          <li><code>ru</code> &mdash; <%= translations.russian %></li>
         </ol>
         <p>
-          The default language is English.
+          <%= translations.default_language %>.
         </p>
       </article>
     </main>
