@@ -10,55 +10,43 @@ defmodule Hapesire.Quotations.Quote do
 
   require Ash.Sort
 
-  @langs_regex ~r/en|ru/
-
   json_api do
     type "quote"
     default_fields [:text, :author]
   end
 
   sqlite do
-    table "quotes_en"
-    table "quotes_ru"
+    table "quotes"
 
     repo Hapesire.Repo
   end
 
   code_interface do
-    define :random, args: [optional: :lang], get?: true
+    define :random, args: [optional: :language], get?: true
+    define :by_id, args: [:id], get?: true
   end
 
   actions do
+    read :by_id
+
     read :random do
-      get? true
-
-      argument :lang, :string do
+      argument :language, :atom do
         allow_nil? true
+        default :en
 
-        constraints match: @langs_regex,
-                    max_length: 2
+        constraints one_of: [
+          :en,
+          :ru
+        ]
       end
 
-      prepare fn query, _ ->
-        lang =
-          case query.arguments do
-            args when args == %{} -> "en"
-            args -> args.lang
-          end
-
-        Ash.Query.set_context(query, %{data_layer: %{table: "quotes_#{lang}"}})
-      end
-
+      filter expr(language == ^arg(:language))
       prepare build(limit: 1, sort: Ash.Sort.expr_sort(fragment("RANDOM()")))
     end
   end
 
   attributes do
-    attribute :id, :string do
-      source :text
-      primary_key? true
-      allow_nil? false
-    end
+    integer_primary_key :id
 
     attribute :text, :string do
       allow_nil? false
@@ -66,6 +54,10 @@ defmodule Hapesire.Quotations.Quote do
 
     attribute :author, :string do
       allow_nil? true
+    end
+
+    attribute :language, :atom do
+      allow_nil? false
     end
   end
 end

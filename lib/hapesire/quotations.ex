@@ -10,12 +10,11 @@ defmodule Hapesire.Quotations do
 
   json_api do
     routes do
-      base_route "/quote", Quote do
-        index :random
-      end
+      base_route "/quotes", Quote do
+        get :random, route: "/random"
+        get :random, route: "/random/:language"
 
-      base_route "/quote/:lang", Quote do
-        index :random
+        get :by_id, route: "/get/:id"
       end
     end
   end
