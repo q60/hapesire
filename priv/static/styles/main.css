@@ -5,7 +5,7 @@
 @media screen and (width <=960px) {
   body {
     /* make the margin at the top and bottom smaller */
-    margin: 20px auto;
+    margin: 20px auto !important;
   }
 }
 
