@@ -2,6 +2,10 @@ defmodule Hapesire.Quotations.Quote do
   @moduledoc """
   `Quote` resource.
   """
+  @languages [
+    :en,
+    :ru
+  ]
 
   use Ash.Resource,
     domain: Hapesire.Quotations,
@@ -34,10 +38,7 @@ defmodule Hapesire.Quotations.Quote do
         allow_nil? true
         default :en
 
-        constraints one_of: [
-          :en,
-          :ru
-        ]
+        constraints one_of: @languages
       end
 
       filter expr(language == ^arg(:language))
