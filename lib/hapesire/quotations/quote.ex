@@ -2,17 +2,17 @@ defmodule Hapesire.Quotations.Quote do
   @moduledoc """
   `Quote` resource.
   """
-  @languages [
-    :en,
-    :ru
-  ]
-
   use Ash.Resource,
     domain: Hapesire.Quotations,
     extensions: [AshJsonApi.Resource],
     data_layer: AshSqlite.DataLayer
 
   require Ash.Sort
+
+  @languages [
+    :en,
+    :ru
+  ]
 
   json_api do
     type "quote"
