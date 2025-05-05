@@ -26,7 +26,7 @@
 
 body {
   margin: 40px auto;
-  max-width: 900px;
+  max-width: 960px;
   font-family: var(--fonts-sans);
   font-size: 18px;
   color: var(--text-color);
@@ -139,13 +139,11 @@ header {
 
   #gradient {
     background: linear-gradient(135deg,
-        var(--bg-color) 0%, var(--bg-color) calc(100% / 6),
-        var(--quaternary-color) calc(100% / 6), var(--quaternary-color) calc(100% / 6 * 2),
-        var(--primary-color) calc(100% / 6 * 2), var(--primary-color) calc(100% / 6 * 3),
-        var(--secondary-color) calc(100% / 6 * 3), var(--secondary-color) calc(100% / 6 * 4),
-        var(--tertiary-color) calc(100% / 6 * 4), var(--tertiary-color) calc(100% / 6 * 5),
-        var(--bg-color) calc(100% / 6 * 5), var(--bg-color) 100%);
-    width: 30%;
+        var(--quaternary-color) 0%, var(--quaternary-color) 25%,
+        var(--primary-color) 25%, var(--primary-color) 50%,
+        var(--secondary-color) 50%, var(--secondary-color) 75%,
+        var(--tertiary-color) 75%, var(--tertiary-color) 100%);
+    width: 25%;
   }
 
   div {
@@ -206,5 +204,40 @@ main {
   article {
     font-size: 1.2em;
     font-weight: 350;
+  }
+}
+
+hr {
+  color: var(--quaternary-color);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5em;
+  margin: 1.2em auto;
+
+  font-family: var(--fonts-serif);
+
+  div#info {
+    span {
+      display: block;
+
+      font-size: 1em;
+
+      color: var(--text-color-light);
+    }
+
+    a img {
+      height: 1em;
+    }
+  }
+
+  div a {
+    text-decoration: none;
+    color: var(--quaternary-color);
+
+    font-size: 1.2em;
+    font-weight: bold;
   }
 }
