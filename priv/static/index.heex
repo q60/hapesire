@@ -19,7 +19,7 @@
         <div>
           <%= if quote_author != nil do %>
             <p class="quote-author">
-              <a style="user-select: none;">&mdash; </a>
+              <span style="user-select: none;">&mdash; </span>
               <%= quote_author %>
             </p>
           <% end %>
@@ -30,28 +30,31 @@
       <article>
         <h4>A few words</h4>
         <p>
-          <a class="name">hapësirë</a> is a collection of famous inspiring quotes by different authors.
+          <span class="name">hapësirë</span> is a collection of famous inspiring quotes by different authors.
         </p>
         <p>
-          Take a look at this unsophisticated basic website. Try pressing the <a class="secondary">more</a> button to see another quote. May you come across an expression that strikes a chord with you.
+          Take a look at this unsophisticated basic website. Try pressing the <span class="secondary">more</span> button to see another quote. May you come across an expression that strikes a chord with you.
         </p>
         <p>
-          However, <a class="name">hapësirë</a> is not only a website, it has a <a href="https://jsonapi.org/" class="link">JSON:API</a> endpoint available at <a href="https://hapesire.hiiaka.xyz/api" class="link">https://hapesire.hiiaka.xyz/api</a>
+          However, <span class="name">hapësirë</span> is not only a website, it has a <a href="https://jsonapi.org/" class="link">JSON:API</a> endpoint available at <a href="https://hapesire.hiiaka.xyz/api" class="link">https://hapesire.hiiaka.xyz/api</a>
         </p>
+      </article>
+      <article>
         <h4>About API</h4>
         <p>
           The following methods are supported:
         </p>
         <ol>
-          <li><a class="code">GET /api/quote</a></li>
-          <li><a class="code">GET /api/quote/:language</a></li>
+          <li><code>GET /api/quotes/random</code></li>
+          <li><code>GET /api/quotes/random/:language</code></li>
+          <li><code>GET /api/quotes/get/:id</code></li>
         </ol>
         <p>
           The next languages are available:
         </p>
         <ol>
-          <li><a class="code">en</a> - English</li>
-          <li><a class="code">ru</a> - Russian</li>
+          <li><code>en</code> - English</li>
+          <li><code>ru</code> - Russian</li>
         </ol>
         <p>
           The default language is English.

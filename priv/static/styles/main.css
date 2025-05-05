@@ -73,19 +73,19 @@ ol {
   }
 }
 
-a.name {
+span.name {
   font-family: var(--fonts-serif);
   font-weight: 500;
   color: var(--primary-color);
 }
 
-a.primary {
+span.primary {
   font-family: var(--fonts-mono);
   font-weight: 500;
   color: var(--primary-color);
 }
 
-a.secondary {
+span.secondary {
   font-family: var(--fonts-mono);
   font-weight: 500;
   color: var(--secondary-color);
@@ -97,7 +97,7 @@ a.link {
   text-decoration: underline;
 }
 
-a.code {
+code {
   font-family: var(--fonts-mono);
   font-weight: 400;
   color: var(--primary-color);
