@@ -1,0 +1,51 @@
+msgid "more"
+msgstr "ещё"
+
+msgid "A few words"
+msgstr "Пару слов"
+
+msgid "is a collection of famous inspiring quotes by different authors"
+msgstr "&mdash; это собрание известных высказываний и цитат разных людей"
+
+msgid "Take a look at this unsophisticated basic website. Try pressing the"
+msgstr "Взгляните на этот неискушённый и простой сайт. Попробуйте нажать на кнопку"
+
+msgid "button to see another quote. May you come across an expression that strikes a chord with you"
+msgstr "чтобы увидеть другую цитату. Желаю найти высказывание, которое будет по-настоящему Вам близко"
+
+msgid "However,"
+msgstr "Но"
+
+msgid "is not only a website, it has a"
+msgstr "&mdash; это не просто веб-сайт, здесь вы так же найдёте"
+
+msgid "endpoint available at"
+msgstr "сервис, доступный по ссылке"
+
+msgid "Quotes API"
+msgstr "API цитат"
+
+msgid "The following methods are supported"
+msgstr "На данный момент поддерживаются следующие методы"
+
+msgid "The next languages are available [quotes]"
+msgstr "Цитаты доступны на следующих языках"
+
+msgid "The next languages are available [proverbs]"
+msgstr "Пословицы доступны на следующих языках"
+
+
+msgid "English"
+msgstr "английский"
+
+msgid "Russian"
+msgstr "русский"
+
+msgid "The default language is English"
+msgstr "Язык по умолчанию &mdash; английский"
+
+msgid "Proverbs API"
+msgstr "API пословиц"
+
+msgid "Chinese"
+msgstr "китайский"
