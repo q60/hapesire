@@ -6,6 +6,7 @@ defmodule Hapesire.Quotations do
   use Ash.Domain,
     extensions: [AshJsonApi.Domain]
 
+  alias Hapesire.Quotations.Proverb
   alias Hapesire.Quotations.Quote
 
   json_api do
@@ -16,10 +17,18 @@ defmodule Hapesire.Quotations do
 
         get :by_id, route: "/get/:id"
       end
+
+      base_route "/proverbs", Proverb do
+        get :random, route: "/random"
+        get :random, route: "/random/:language"
+
+        get :by_id, route: "/get/:id"
+      end
     end
   end
 
   resources do
     resource Quote
+    resource Proverb
   end
 end
