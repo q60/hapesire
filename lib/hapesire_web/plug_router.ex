@@ -17,11 +17,13 @@ defmodule HapesireWeb.PlugRouter do
     however: "However,",
     not_only: "is not only a website, it has a",
     endpoint: "endpoint available at",
-    about_api: "About API",
+    about_quotes_api: "Quotes API",
+    about_proverbs_api: "Proverbs API",
     methods: "The following methods are supported",
     languages: "The next languages are available",
     english: "English",
     russian: "Russian",
+    chinese: "Chinese",
     default_language: "The default language is English"
   }
   @ru %{
@@ -33,12 +35,14 @@ defmodule HapesireWeb.PlugRouter do
     however: "Но",
     not_only: "&mdash; это не просто веб-сайт, здесь вы так же найдёте",
     endpoint: "сервис, доступный по ссылке",
-    about_api: "Об API",
+    about_quotes_api: "API цитат",
+    about_proverbs_api: "API пословиц",
     methods: "На данный момент поддерживаются следующие методы",
     languages: "Цитаты доступны на следующих языках",
     english: "английский",
     russian: "русский",
-    default_language: "Язык цитат по умолчанию &mdash; английский"
+    chinese: "китайский",
+    default_language: "Язык по умолчанию &mdash; английский"
   }
 
   if Mix.env() == :dev do

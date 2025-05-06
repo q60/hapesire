@@ -51,7 +51,7 @@
         </p>
       </article>
       <article>
-        <h4><%= translations.about_api %></h4>
+        <h4><%= translations.about_quotes_api %></h4>
         <p>
           <%= translations.methods %>:
         </p>
@@ -66,6 +66,25 @@
         <ol>
           <li><code>en</code> &mdash; <%= translations.english %></li>
           <li><code>ru</code> &mdash; <%= translations.russian %></li>
+        </ol>
+        <p>
+          <%= translations.default_language %>.
+        </p>
+        <h4><%= translations.about_proverbs_api %></h4>
+        <p>
+          <%= translations.methods %>:
+        </p>
+        <ol>
+          <li><code>GET /api/proverbs/random</code></li>
+          <li><code>GET /api/proverbs/random/:language</code></li>
+          <li><code>GET /api/proverbs/get/:id</code></li>
+        </ol>
+        <p>
+          <%= translations.languages %>:
+        </p>
+        <ol>
+          <li><code>en</code> &mdash; <%= translations.english %></li>
+          <li><code>zh</code> &mdash; <%= translations.chinese %></li>
         </ol>
         <p>
           <%= translations.default_language %>.
