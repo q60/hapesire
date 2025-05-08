@@ -73,6 +73,14 @@ ol {
   }
 }
 
+ul {
+  list-style-type: square;
+
+  li::marker {
+    color: var(--quaternary-color);
+  }
+}
+
 span.name {
   font-family: var(--fonts-serif);
   font-weight: 500;

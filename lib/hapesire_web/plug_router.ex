@@ -8,6 +8,10 @@ defmodule HapesireWeb.PlugRouter do
   alias Hapesire.Quotations.Quote
 
   @static "priv/static"
+  @routes %{
+    quotes: HapesireWeb.routes_by_type(:get, "quote"),
+    proverbs: HapesireWeb.routes_by_type(:get, "proverb")
+  }
 
   if Mix.env() == :dev do
     use Plug.Debugger, otp_app: :hapesire
@@ -29,17 +33,7 @@ defmodule HapesireWeb.PlugRouter do
   end
 
   get "/en" do
-    %{text: text, author: author} = Quote.random!("en")
-
-    html =
-      EEx.eval_file(
-        "#{@static}/index.heex",
-        quote_text: text,
-        quote_author: author,
-        gettext: &gettext/2,
-        current_locale: "en",
-        next_locale: "ru"
-      )
+    html = eval_file("en", "ru")
 
     conn
     |> put_resp_content_type("text/html")
@@ -47,26 +41,28 @@ defmodule HapesireWeb.PlugRouter do
   end
 
   get "/ru" do
-    %{text: text, author: author} = Quote.random!("ru")
-
-    html =
-      EEx.eval_file(
-        "#{@static}/index.heex",
-        quote_text: text,
-        quote_author: author,
-        gettext: &gettext/2,
-        current_locale: "ru",
-        next_locale: "en"
-      )
+    html = eval_file("ru", "en")
 
     conn
     |> put_resp_content_type("text/html")
     |> send_resp(200, html)
   end
 
-  defp gettext(locale, msg_id, bindings \\ %{}) do
-    Gettext.with_locale(locale, fn ->
-      Gettext.gettext(Hapesire.Gettext, msg_id, bindings)
-    end)
+  defp eval_file(current_locale, next_locale) do
+    %{text: text, author: author} = Quote.random!(current_locale)
+
+    EEx.eval_file(
+      "#{@static}/index.heex",
+      quote_text: text,
+      quote_author: author,
+      gettext: &HapesireWeb.gettext/2,
+      current_locale: current_locale,
+      next_locale: next_locale,
+      routes: @routes,
+      count: %{
+        quotes: Hapesire.record_count("quotes"),
+        proverbs: Hapesire.record_count("proverbs")
+      }
+    )
   end
 end

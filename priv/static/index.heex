@@ -49,6 +49,10 @@
         <p>
           <%= gettext.(current_locale, "However,") %> <span class="name">hapësirë</span> <%= gettext.(current_locale, "is not only a website, it has a") %> <a href="https://jsonapi.org/" class="link">JSON:API</a> <%= gettext.(current_locale, "endpoint available at") %> <a href="https://hapesire.kira.computer/api" class="link">https://hapesire.kira.computer/api</a>
         </p>
+        <ul>
+          <li><%= gettext.(current_locale, "Quotes available:") %> <code><%= count.quotes %></code></li>
+          <li><%= gettext.(current_locale, "Proverbs available:") %> <code><%= count.proverbs %></code></li>
+        </ul>
       </article>
       <article>
         <h4><%= gettext.(current_locale, "Quotes API") %></h4>
@@ -56,9 +60,7 @@
           <%= gettext.(current_locale, "The following methods are supported") %>:
         </p>
         <ol>
-          <li><code>GET /api/quotes/random</code></li>
-          <li><code>GET /api/quotes/random/:language</code></li>
-          <li><code>GET /api/quotes/get/:id</code></li>
+          <%= Enum.map(routes.quotes, fn path -> "<li><code>#{path}</code></li>" end) %>
         </ol>
         <p>
           <%= gettext.(current_locale, "The next languages are available [quotes]") %>:
@@ -75,9 +77,7 @@
           <%= gettext.(current_locale, "The following methods are supported") %>:
         </p>
         <ol>
-          <li><code>GET /api/proverbs/random</code></li>
-          <li><code>GET /api/proverbs/random/:language</code></li>
-          <li><code>GET /api/proverbs/get/:id</code></li>
+          <%= Enum.map(routes.proverbs, fn path -> "<li><code>#{path}</code></li>" end) %>
         </ol>
         <p>
           <%= gettext.(current_locale, "The next languages are available [proverbs]") %>:

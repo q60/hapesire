@@ -48,3 +48,9 @@ msgstr ""
 
 msgid "Chinese"
 msgstr ""
+
+msgid "Quotes available:"
+msgstr ""
+
+msgid "Proverbs available:"
+msgstr ""

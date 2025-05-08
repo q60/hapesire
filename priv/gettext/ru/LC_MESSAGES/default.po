@@ -49,3 +49,9 @@ msgstr "API пословиц"
 
 msgid "Chinese"
 msgstr "китайский"
+
+msgid "Quotes available:"
+msgstr "Цитат доступно:"
+
+msgid "Proverbs available:"
+msgstr "Пословиц доступно:"
