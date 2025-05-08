@@ -32,37 +32,39 @@ defmodule HapesireWeb.PlugRouter do
     |> put_resp_header("location", "/en")
   end
 
-  get "/en" do
-    html = eval_file("en", "ru")
+  get "/:language" when language in ~w(en ru) do
+    {current_locale, next_locale} =
+      case language do
+        "ru" -> {"ru", "en"}
+        _ -> {"en", "ru"}
+      end
 
-    conn
-    |> put_resp_content_type("text/html")
-    |> send_resp(200, html)
-  end
-
-  get "/ru" do
-    html = eval_file("ru", "en")
-
-    conn
-    |> put_resp_content_type("text/html")
-    |> send_resp(200, html)
-  end
-
-  defp eval_file(current_locale, next_locale) do
     %{text: text, author: author} = Quote.random!(current_locale)
 
+    html =
+      eval_file(
+        "index.heex",
+        quote_text: text,
+        quote_author: author,
+        current_locale: current_locale,
+        next_locale: next_locale,
+        routes: @routes,
+        count: %{
+          quotes: Hapesire.record_count("quotes"),
+          proverbs: Hapesire.record_count("proverbs")
+        }
+      )
+
+    conn
+    |> put_resp_content_type("text/html")
+    |> send_resp(200, html)
+  end
+
+  defp eval_file(template, bindings) do
     EEx.eval_file(
-      "#{@static}/index.heex",
-      quote_text: text,
-      quote_author: author,
-      gettext: &HapesireWeb.gettext/2,
-      current_locale: current_locale,
-      next_locale: next_locale,
-      routes: @routes,
-      count: %{
-        quotes: Hapesire.record_count("quotes"),
-        proverbs: Hapesire.record_count("proverbs")
-      }
+      "#{@static}/root.heex",
+      template: "#{@static}/#{template}",
+      bindings: [{:gettext, &HapesireWeb.gettext/2} | bindings]
     )
   end
 end

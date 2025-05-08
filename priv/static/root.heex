@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>hapësirë</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="static/styles/main.css">
+  </head>
+  <body>
+    <header>
+      <a href="/" style="text-decoration: none;">
+        <div id="logo">
+          hapësirë
+        </div>
+      </a>
+      <div id="gradient"><div/>
+    </header>
+    <%= EEx.eval_file(template, bindings) %>
+    <hr>
+    <footer>
+      <div id="info">
+        <span>
+          by kira
+        </span>
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+          <img src="https://mirrors.creativecommons.org/presskit/icons/pd.svg"/>
+          <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg"/>
+        </a>
+      </div>
+      <div>
+        <a href="https://github.com/q60/hapesire">
+          GitHub
+        </a>
+      </div>
+      <div>
+        <a href="https://codeberg.org/q60/hapesire">
+          Codeberg
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
