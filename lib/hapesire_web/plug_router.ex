@@ -8,6 +8,7 @@ defmodule HapesireWeb.PlugRouter do
   alias Hapesire.Quotations.Quote
 
   @static "priv/static"
+  @locales ~w(en ru)
   @routes %{
     quotes: HapesireWeb.routes_by_type(:get, "quote"),
     proverbs: HapesireWeb.routes_by_type(:get, "proverb")
@@ -27,27 +28,16 @@ defmodule HapesireWeb.PlugRouter do
   forward("/api", to: HapesireWeb.AshJsonApiRouter)
 
   get "/" do
-    conn
-    |> resp(302, "")
-    |> put_resp_header("location", "/en")
-  end
+    locale = get_locale(conn)
 
-  get "/:language" when language in ~w(en ru) do
-    {current_locale, next_locale} =
-      case language do
-        "ru" -> {"ru", "en"}
-        _ -> {"en", "ru"}
-      end
-
-    %{text: text, author: author} = Quote.random!(current_locale)
+    %{text: text, author: author} = Quote.random!(locale)
 
     html =
       eval_file(
         "index.heex",
+        locale,
         quote_text: text,
         quote_author: author,
-        current_locale: current_locale,
-        next_locale: next_locale,
         routes: @routes,
         count: %{
           quotes: Hapesire.record_count("quotes"),
@@ -60,11 +50,33 @@ defmodule HapesireWeb.PlugRouter do
     |> send_resp(200, html)
   end
 
-  defp eval_file(template, bindings) do
+  get "/docs" do
+    locale = get_locale(conn)
+
+    html = eval_file("docs.heex", locale)
+
+    conn
+    |> put_resp_content_type("text/html")
+    |> send_resp(200, html)
+  end
+
+  defp get_locale(conn) do
+    language = fetch_query_params(conn).query_params["lang"]
+
+    if language in @locales do
+      language
+    else
+      "en"
+    end
+  end
+
+  defp eval_file(template, locale, bindings \\ []) do
     EEx.eval_file(
       "#{@static}/root.heex",
       template: "#{@static}/#{template}",
-      bindings: [{:gettext, &HapesireWeb.gettext/2} | bindings]
+      current_locale: locale,
+      locales: @locales,
+      bindings: [{:gettext, &HapesireWeb.gettext/2}, {:current_locale, locale} | bindings]
     )
   end
 end
