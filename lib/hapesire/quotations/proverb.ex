@@ -27,15 +27,28 @@ defmodule Hapesire.Quotations.Proverb do
   end
 
   code_interface do
-    define :random, args: [optional: :language], get?: true
-    define :by_id, args: [:id], get?: true
+    define :random do
+      args optional: :language
+      get? true
+    end
+
+    define :by_id do
+      args [:id]
+      get? true
+    end
   end
 
   actions do
-    read :by_id
+    read :by_id do
+      description "gets a proverb by id"
+    end
 
     read :random do
+      description "gets a random proverb by language"
+
       argument :language, :atom do
+        description "proverb language"
+
         allow_nil? true
         default :en
 
@@ -51,10 +64,14 @@ defmodule Hapesire.Quotations.Proverb do
     integer_primary_key :id
 
     attribute :text, :string do
+      description "proverb"
+
       allow_nil? false
     end
 
     attribute :language, :atom do
+      description "proverb language"
+
       allow_nil? false
     end
   end

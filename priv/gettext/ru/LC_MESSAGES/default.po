@@ -16,8 +16,8 @@ msgstr "чтобы увидеть другую цитату. Желаю найт
 msgid "However,"
 msgstr "Но"
 
-msgid "is not only a website, it has a"
-msgstr "&mdash; это не просто веб-сайт, здесь вы так же найдёте"
+msgid "%{name} is not just a website, it has a"
+msgstr "это не просто веб-сайт, здесь вы так же найдёте"
 
 msgid "endpoint available at"
 msgstr "сервис, доступный по ссылке"
@@ -55,3 +55,9 @@ msgstr "Цитат доступно:"
 
 msgid "Proverbs available:"
 msgstr "Пословиц доступно:"
+
+msgid "Feel free to read the"
+msgstr "Вы можете ознакомиться с документацией"
+
+msgid "docs"
+msgstr "здесь"

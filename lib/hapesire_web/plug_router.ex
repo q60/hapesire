@@ -25,7 +25,7 @@ defmodule HapesireWeb.PlugRouter do
   plug :match
   plug :dispatch
 
-  forward("/api", to: HapesireWeb.AshJsonApiRouter)
+  forward "/api", to: HapesireWeb.AshJsonApiRouter
 
   get "/" do
     locale = get_locale(conn)
@@ -38,7 +38,6 @@ defmodule HapesireWeb.PlugRouter do
         locale,
         quote_text: text,
         quote_author: author,
-        routes: @routes,
         count: %{
           quotes: Hapesire.record_count("quotes"),
           proverbs: Hapesire.record_count("proverbs")
@@ -53,7 +52,7 @@ defmodule HapesireWeb.PlugRouter do
   get "/docs" do
     locale = get_locale(conn)
 
-    html = eval_file("docs.heex", locale)
+    html = eval_file("docs.heex", locale, routes: @routes)
 
     conn
     |> put_resp_content_type("text/html")
@@ -63,20 +62,20 @@ defmodule HapesireWeb.PlugRouter do
   defp get_locale(conn) do
     language = fetch_query_params(conn).query_params["lang"]
 
-    if language in @locales do
-      language
-    else
-      "en"
-    end
+    (language in @locales && language) || "en"
   end
 
-  defp eval_file(template, locale, bindings \\ []) do
+  defp eval_file(template, locale, bindings) do
     EEx.eval_file(
       "#{@static}/root.heex",
       template: "#{@static}/#{template}",
       current_locale: locale,
       locales: @locales,
-      bindings: [{:gettext, &HapesireWeb.gettext/2}, {:current_locale, locale} | bindings]
+      bindings: [
+        {:gettext, &HapesireWeb.gettext/2},
+        {:bgettext, &HapesireWeb.gettext/3},
+        {:current_locale, locale} | bindings
+      ]
     )
   end
 end

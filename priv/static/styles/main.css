@@ -7,6 +7,12 @@
     /* make the margin at the top and bottom smaller */
     margin: 20px auto !important;
   }
+
+  #info-box {
+    #description {
+      max-width: 100% !important;
+    }
+  }
 }
 
 /* colors and whatnot */
@@ -32,53 +38,6 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   padding: 0 10px;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--fonts-serif);
-  color: var(--text-color-light);
-
-  padding-left: 0.8em;
-  margin-bottom: 0;
-}
-
-h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 2em;
-  font-weight: bold;
-}
-
-h3 {
-  font-size: 1.5em;
-  font-weight: 600;
-}
-
-h4 {
-  font-size: 1.2em;
-  font-weight: 500;
-}
-
-ol {
-  list-style-type: lower-roman;
-
-  li::marker {
-    color: var(--quaternary-color);
-  }
-}
-
-ul {
-  list-style-type: square;
-
-  li::marker {
-    color: var(--quaternary-color);
-  }
 }
 
 #language {
@@ -133,6 +92,53 @@ ul {
   }
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fonts-serif);
+  color: var(--text-color-light);
+
+  padding-left: 0.8em;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+ol {
+  list-style-type: lower-roman;
+
+  li::marker {
+    color: var(--quaternary-color);
+  }
+}
+
+ul {
+  list-style-type: square;
+
+  li::marker {
+    color: var(--quaternary-color);
+  }
+}
+
 span.name {
   font-family: var(--fonts-serif);
   font-weight: 500;
@@ -182,6 +188,25 @@ code {
   font-family: var(--fonts-mono);
   font-weight: 400;
   color: var(--primary-color);
+}
+
+code.comment {
+  color: var(--text-color);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -.05em;
+}
+
+code.secondary {
+  color: var(--secondary-color);
+}
+
+code.tertiary {
+  color: var(--tertiary-color);
+}
+
+code.quaternary {
+  color: var(--quaternary-color);
 }
 
 header {
@@ -254,18 +279,31 @@ main {
         right: 1.5em;
         bottom: 1.5em;
       }
-
-      a.button#language {
-        position: absolute;
-        left: 1.5em;
-        bottom: 1.5em;
-      }
     }
   }
 
   article {
     font-size: 1.2em;
     font-weight: 350;
+  }
+}
+
+#info-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  #description {
+    max-width: 70%;
+  }
+
+  #record-count {
+    list-style: none;
+    text-align: end;
+    border-width: 3px;
+    border-style: dashed;
+    border-color: var(--quaternary-color);
+    padding: .4em;
   }
 }
 
