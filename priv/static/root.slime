@@ -1,0 +1,50 @@
+doctype html
+
+html
+  head
+    title hapësirë
+
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    link rel="stylesheet" type="text/css" href="/static/styles/main.css"
+
+
+  body
+    header
+      a href="/?lang=#{current_locale}" style="text-decoration: none;"
+        div#logo hapësirë
+
+      div#gradient
+
+
+    div#language
+      input#language-input type="checkbox"
+
+      label#language-button.button for="language-input" #{current_locale}
+
+      ul#language-list
+        = for language <- locales do
+          li
+            a href="?lang=#{language}" #{language}
+
+
+    main = EEx.eval_string(template, bindings)
+
+    hr
+
+    footer
+      div#info
+        span by kira
+
+        a href="https://creativecommons.org/publicdomain/zero/1.0/"
+          img src="https://mirrors.creativecommons.org/presskit/icons/pd.svg"
+          = " "
+          img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg"
+
+
+      div
+        a href="https://github.com/q60/hapesire" GitHub
+
+      div
+        a href="https://codeberg.org/q60/hapesire" Codeberg

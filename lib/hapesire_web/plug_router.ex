@@ -7,12 +7,18 @@ defmodule HapesireWeb.PlugRouter do
 
   alias Hapesire.Quotations.Quote
 
+  require Slime
+
   @static "priv/static"
   @locales ~w(en ru)
   @routes %{
     quotes: HapesireWeb.routes_by_type(:get, "quote"),
     proverbs: HapesireWeb.routes_by_type(:get, "proverb")
   }
+
+  @root "#{@static}/root.slime" |> File.read!() |> Slime.Renderer.precompile()
+  @index "#{@static}/index.slime" |> File.read!() |> Slime.Renderer.precompile()
+  @docs "#{@static}/docs.slime" |> File.read!() |> Slime.Renderer.precompile()
 
   if Mix.env() == :dev do
     use Plug.Debugger, otp_app: :hapesire
@@ -33,8 +39,8 @@ defmodule HapesireWeb.PlugRouter do
     %{text: text, author: author} = Quote.random!(locale)
 
     html =
-      eval_file(
-        "index.heex",
+      eval_template(
+        @index,
         locale,
         quote_text: text,
         quote_author: author,
@@ -52,7 +58,7 @@ defmodule HapesireWeb.PlugRouter do
   get "/docs" do
     locale = get_locale(conn)
 
-    html = eval_file("docs.heex", locale, routes: @routes)
+    html = eval_template(@docs, locale, routes: @routes)
 
     conn
     |> put_resp_content_type("text/html")
@@ -65,10 +71,10 @@ defmodule HapesireWeb.PlugRouter do
     (language in @locales && language) || "en"
   end
 
-  defp eval_file(template, locale, bindings) do
-    EEx.eval_file(
-      "#{@static}/root.heex",
-      template: "#{@static}/#{template}",
+  defp eval_template(template, locale, bindings) do
+    EEx.eval_string(
+      @root,
+      template: template,
       current_locale: locale,
       locales: @locales,
       bindings: [
