@@ -48,20 +48,26 @@ article
 
   /! box with a piece of description and records count
   div#info-box
+    /! description
     p#description
       = "#{description}."
 
-    ul#record-count
-      - text = gettext.(current_locale, "Quotes available:")
-      /! quotes count
-      li
-	    = "#{text} "
-        code = count.quotes
-      - text = gettext.(current_locale, "Proverbs available:")
-      /! proverbs count
-      li
-	    = "#{text} "
-        code = count.proverbs
+    /! records count
+    table#record-count
+      tbody
+        /! quotes count
+        tr
+          td.left
+            = gettext.(current_locale, "Quotes available:")
+          td.right
+            code = count.quotes
+
+        /! proverbs count
+        tr
+          td.left
+            = gettext.(current_locale, "Proverbs available:")
+          td.right
+            code = count.proverbs
 
 
   /! docs
