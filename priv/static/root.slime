@@ -46,16 +46,16 @@ html
         span
           = "with "
           a href="https://elixir-lang.org"
-            img src="/static/assets/elixir.svg"
+            img src="/static/assets/elixir.svg" alt="Elixir programming language logo"
           = " & "
           a href="https://www.ash-hq.org"
-            img src="/static/assets/ash.svg"
+            img src="/static/assets/ash.svg" alt="Ash framework logo"
 
         span
           a href="https://creativecommons.org/publicdomain/zero/1.0/"
-            img src="/static/assets/cc1.svg"
+            img src="/static/assets/cc1.svg" alt="encircled C with a diagonal slash through it, representing public domain"
             = " "
-            img src="/static/assets/cc2.svg"
+            img src="/static/assets/cc2.svg" alt="encircled slashed zero, representing CC0 license"
 
       /! github link
       div
