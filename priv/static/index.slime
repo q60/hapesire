@@ -14,46 +14,57 @@ elixir:
   docs = ~s|<a class="link" href="/docs?lang=#{current_locale}">#{gettext.(current_locale, "docs")}</a>|
 
 
+/! quote display block
 div#quote
+  /! text
   p.quote-text = quote_text
 
   div
     = unless is_nil(quote_author) do
+      /! author
       p.quote-author
         span style="user-select: none;"
           = "#{dash} #{quote_author}"
 
+    /! buttons block
     div#quote-buttons
       a#more.button href="?lang=#{current_locale}"
         = gettext.(current_locale, "more")
 
 
+/! information
 article
   h4 = gettext.(current_locale, "A few words")
 
+  /! explanation
   p
     - text = bgettext.(current_locale, "%{name} is a collection of famous inspiring quotes by different authors", name: name)
     = "#{text}."
 
+  /! about the website
   p
     - text = bgettext.(current_locale, "Take a look at this unsophisticated basic website. Try pressing the %{more} button to see another quote. May you come across an expression that strikes a chord with you", more: more)
     = "#{text}."
 
+  /! box with a piece of description and records count
   div#info-box
     p#description
       = "#{description}."
 
     ul#record-count
       - text = gettext.(current_locale, "Quotes available:")
+      /! quotes count
       li
 	    = "#{text} "
         code = count.quotes
       - text = gettext.(current_locale, "Proverbs available:")
+      /! proverbs count
       li
 	    = "#{text} "
         code = count.proverbs
 
 
+  /! docs
   p
     - text = bgettext.(current_locale, "Feel free to read the %{docs}", docs: docs)
     = "#{text}."

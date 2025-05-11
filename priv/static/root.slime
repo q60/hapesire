@@ -11,6 +11,7 @@ html
 
 
   body
+    /! header with logo and gradient
     header
       a href="/?lang=#{current_locale}" style="text-decoration: none;"
         div#logo hapësirë
@@ -18,22 +19,29 @@ html
       div#gradient
 
 
+    /! language selector
     div#language
+      /! invisible checkbox to make selector work
       input#language-input type="checkbox"
 
+      /! label with current locale on display
       label#language-button.button for="language-input" #{current_locale}
 
+      /! locales list
       ul#language-list
         = for language <- locales do
           li
             a href="?lang=#{language}" #{language}
 
 
+    /! page content
     main = EEx.eval_string(template, bindings)
 
     hr
 
+    /! footer with info and links
     footer
+      /! author and licensing
       div#info
         span by kira
 
@@ -42,9 +50,10 @@ html
           = " "
           img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg"
 
-
+      /! github link
       div
         a href="https://github.com/q60/hapesire" GitHub
 
+      /! codeberg link
       div
         a href="https://codeberg.org/q60/hapesire" Codeberg

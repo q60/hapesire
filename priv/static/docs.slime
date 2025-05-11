@@ -3,7 +3,9 @@ article
   h4 = gettext.(current_locale, "Quotes API")
 
   - text = gettext.(current_locale, "The following methods are supported")
+  /! /api/quotes methods
   p #{text}:
+  /! routes
   ol
     = for {path, %{description: desc, params: params}} <- routes.quotes do
       li
@@ -21,6 +23,7 @@ article
 
   - text = gettext.(current_locale, "The next languages are available [quotes]")
   p #{text}:
+  /! languages
   ol
     li
       code en
@@ -34,12 +37,15 @@ article
   - text = gettext.(current_locale, "The default language is English")
   p #{text}.
 
+
 /! proverbs API
 article
   h4 = gettext.(current_locale, "Proverbs API")
 
   - text = gettext.(current_locale, "The following methods are supported")
+  /! /api/proverbs methods
   p #{text}:
+  /! routes
   ol
     = for {path, %{description: desc, params: params}} <- routes.proverbs do
       li
@@ -57,6 +63,7 @@ article
 
   - text = gettext.(current_locale, "The next languages are available [proverbs]")
   p #{text}:
+  /! languages
   ol
     li
       code en
