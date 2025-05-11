@@ -11,7 +11,9 @@ This project comes batteries included with ready to use sqlite database that I c
 
 API docs can be found here - https://hapesire.kira.computer/docs.
 
-<img alt="screenshot of the webpage" src="https://gist.github.com/user-attachments/assets/e8543341-a637-4af1-8223-bfbe8a989d15" width="50%">
+Here's some basic CLI client that supports this API - **[gigagei](https://github.com/q60/gigagei)**. Give it a try.
+
+<img alt="screenshot of the webpage" src="hapesire.png" width="50%">
 
 
 ### Current stack
