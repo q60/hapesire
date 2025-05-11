@@ -21,7 +21,8 @@ defmodule HapesireWeb.PlugRouter do
 
   plug Plug.Static,
     at: "static",
-    from: {:hapesire, @static}
+    from: {:hapesire, @static},
+    only: ~w(styles assets)
 
   plug :match
   plug :dispatch
