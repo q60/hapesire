@@ -43,12 +43,19 @@ html
     footer
       /! author and licensing
       div#info
-        span by kira
+        span
+          = "with "
+          a href="https://elixir-lang.org"
+            img src="/static/assets/elixir.svg"
+          = " & "
+          a href="https://www.ash-hq.org"
+            img src="/static/assets/ash.svg"
 
-        a href="https://creativecommons.org/publicdomain/zero/1.0/"
-          img src="https://mirrors.creativecommons.org/presskit/icons/pd.svg"
-          = " "
-          img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg"
+        span
+          a href="https://creativecommons.org/publicdomain/zero/1.0/"
+            img src="/static/assets/cc1.svg"
+            = " "
+            img src="/static/assets/cc2.svg"
 
       /! github link
       div

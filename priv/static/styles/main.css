@@ -324,6 +324,7 @@ hr {
 footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 2.5em;
   margin: 1.2em auto;
 
@@ -340,6 +341,7 @@ footer {
 
     a img {
       height: 1em;
+      vertical-align: middle;
     }
   }
 
