@@ -27,7 +27,6 @@ defmodule Hapesire.MixProject do
       {:gettext, "~> 0.26"},
       {:ash_sqlite, "~> 0.2"},
       {:plug_cowboy, "~> 2.0"},
-      {:redoc_ui_plug, "~> 0.2"},
       {:open_api_spex, "~> 3.0"},
       {:ash_json_api, "~> 1.0"},
       {:sourceror, "~> 1.8", only: [:dev, :test]},
