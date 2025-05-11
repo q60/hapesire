@@ -1,5 +1,3 @@
-- dash = " — "
-
 /! quotes API
 article
   h4 = gettext.(current_locale, "Quotes API")

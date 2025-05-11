@@ -31,6 +31,7 @@ defmodule HapesireWeb.Templates do
               bindings: [
                 {:gettext, &HapesireWeb.gettext/2},
                 {:bgettext, &HapesireWeb.gettext/3},
+                {:dash, " — "},
                 {:current_locale, locale} | bindings
               ]
             )

@@ -1,4 +1,18 @@
-- dash = " — "
+elixir:
+  name = ~s|<span class="name">hapësirë</span>|
+
+  more = ~s|<span class="secondary">#{gettext.(current_locale, "more")}</span>|
+
+  description = bgettext.(
+    current_locale,
+    "However, %{name} is not just a website, it has a %{json_api} endpoint available at %{endpoint}",
+    name: name,
+    json_api: ~s|<a class="link" href="https://jsonapi.org/">JSON:API</a>|,
+    endpoint: ~s|<a class="link" href="https://hapesire.kira.computer/api">https://hapesire.kira.computer/api</a>|
+  )
+
+  docs = ~s|<a class="link" href="/docs?lang=#{current_locale}">#{gettext.(current_locale, "docs")}</a>|
+
 
 div#quote
   p.quote-text = quote_text
@@ -18,22 +32,16 @@ article
   h4 = gettext.(current_locale, "A few words")
 
   p
-    span.name hapësirë
-    - text = gettext.(current_locale, "is a collection of famous inspiring quotes by different authors")
-    = " #{text}."
+    - text = bgettext.(current_locale, "%{name} is a collection of famous inspiring quotes by different authors", name: name)
+    = "#{text}."
 
   p
-    = "#{gettext.(current_locale, "Take a look at this unsophisticated basic website. Try pressing the")} "
-    span.secondary = gettext.(current_locale, "more")
-    = " #{gettext.(current_locale, "button to see another quote. May you come across an expression that strikes a chord with you")}."
+    - text = bgettext.(current_locale, "Take a look at this unsophisticated basic website. Try pressing the %{more} button to see another quote. May you come across an expression that strikes a chord with you", more: more)
+    = "#{text}."
 
   div#info-box
     p#description
-      = "#{gettext.(current_locale, "However,")} #{bgettext.(current_locale, "%{name} is not just a website, it has a", name: "<span class=\"name\">hapësirë</span> ")} "
-      a.link href="https://jsonapi.org/" JSON:API
-      = " #{gettext.(current_locale, "endpoint available at")} "
-      a.link href="https://hapesire.kira.computer/api" https://hapesire.kira.computer/api
-      = "."
+      = "#{description}."
 
     ul#record-count
       - text = gettext.(current_locale, "Quotes available:")
@@ -47,9 +55,5 @@ article
 
 
   p
-    = gettext.(current_locale, "Feel free to read the")
-    = " "
-    a.link href="/docs?lang=#{current_locale}"
-      - text = gettext.(current_locale, "docs")
-      = "#{text}"
-    = "."
+    - text = bgettext.(current_locale, "Feel free to read the %{docs}", docs: docs)
+    = "#{text}."

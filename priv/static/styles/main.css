@@ -182,6 +182,7 @@ a.link {
   font-weight: 400;
   color: var(--tertiary-color);
   text-decoration: underline;
+  white-space: nowrap;
 }
 
 code {

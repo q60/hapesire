@@ -4,22 +4,13 @@ msgstr ""
 msgid "A few words"
 msgstr ""
 
-msgid "is a collection of famous inspiring quotes by different authors"
+msgid "%{name} is a collection of famous inspiring quotes by different authors"
 msgstr ""
 
-msgid "Take a look at this unsophisticated basic website. Try pressing the"
+msgid "Take a look at this unsophisticated basic website. Try pressing the %{more} button to see another quote. May you come across an expression that strikes a chord with you"
 msgstr ""
 
-msgid "button to see another quote. May you come across an expression that strikes a chord with you"
-msgstr ""
-
-msgid "However,"
-msgstr ""
-
-msgid "%{name} is not just a website, it has a"
-msgstr ""
-
-msgid "endpoint available at"
+msgid "However, %{name} is not just a website, it has a %{json_api} endpoint available at %{endpoint}"
 msgstr ""
 
 msgid "Quotes API"
@@ -56,7 +47,7 @@ msgstr ""
 msgid "Proverbs available:"
 msgstr ""
 
-msgid "Feel free to read the"
+msgid "Feel free to read the %{docs}"
 msgstr ""
 
 msgid "docs"
