@@ -4,11 +4,12 @@ defmodule HapesireWeb.PlugRouter do
   """
 
   use Plug.Router
+  use HapesireWeb.Templates
 
   alias Hapesire.Quotations.Quote
 
-  @static "priv/static"
-  @locales ~w(en ru)
+  @static Hapesire.static()
+  @locales Hapesire.locales()
   @routes %{
     quotes: HapesireWeb.routes_by_type(:get, "quote"),
     proverbs: HapesireWeb.routes_by_type(:get, "proverb")
@@ -33,8 +34,7 @@ defmodule HapesireWeb.PlugRouter do
     %{text: text, author: author} = Quote.random!(locale)
 
     html =
-      eval_file(
-        "index.heex",
+      eval_index(
         locale,
         quote_text: text,
         quote_author: author,
@@ -52,7 +52,7 @@ defmodule HapesireWeb.PlugRouter do
   get "/docs" do
     locale = get_locale(conn)
 
-    html = eval_file("docs.heex", locale, routes: @routes)
+    html = eval_docs(locale, routes: @routes)
 
     conn
     |> put_resp_content_type("text/html")
@@ -63,19 +63,5 @@ defmodule HapesireWeb.PlugRouter do
     language = fetch_query_params(conn).query_params["lang"]
 
     (language in @locales && language) || "en"
-  end
-
-  defp eval_file(template, locale, bindings) do
-    EEx.eval_file(
-      "#{@static}/root.heex",
-      template: "#{@static}/#{template}",
-      current_locale: locale,
-      locales: @locales,
-      bindings: [
-        {:gettext, &HapesireWeb.gettext/2},
-        {:bgettext, &HapesireWeb.gettext/3},
-        {:current_locale, locale} | bindings
-      ]
-    )
   end
 end

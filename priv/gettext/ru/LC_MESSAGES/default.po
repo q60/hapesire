@@ -4,23 +4,14 @@ msgstr "ещё"
 msgid "A few words"
 msgstr "Пару слов"
 
-msgid "is a collection of famous inspiring quotes by different authors"
-msgstr "&mdash; это собрание известных высказываний и цитат разных людей"
+msgid "%{name} is a collection of famous inspiring quotes by different authors"
+msgstr "%{name} &mdash; это собрание известных высказываний и цитат разных людей"
 
-msgid "Take a look at this unsophisticated basic website. Try pressing the"
-msgstr "Взгляните на этот неискушённый и простой сайт. Попробуйте нажать на кнопку"
+msgid "Take a look at this unsophisticated basic website. Try pressing the %{more} button to see another quote. May you come across an expression that strikes a chord with you"
+msgstr "Взгляните на этот неискушённый и простой сайт. Попробуйте нажать на кнопку %{more} чтобы увидеть другую цитату. Желаю найти высказывание, которое будет по-настоящему Вам близко"
 
-msgid "button to see another quote. May you come across an expression that strikes a chord with you"
-msgstr "чтобы увидеть другую цитату. Желаю найти высказывание, которое будет по-настоящему Вам близко"
-
-msgid "However,"
-msgstr "Но"
-
-msgid "%{name} is not just a website, it has a"
-msgstr "это не просто веб-сайт, здесь вы так же найдёте"
-
-msgid "endpoint available at"
-msgstr "сервис, доступный по ссылке"
+msgid "However, %{name} is not just a website, it has a %{json_api} endpoint available at %{endpoint}"
+msgstr "Но %{name} это не просто веб-сайт, здесь вы так же найдёте %{json_api} сервис, доступный по ссылке %{endpoint}"
 
 msgid "Quotes API"
 msgstr "API цитат"
@@ -56,8 +47,8 @@ msgstr "Цитат доступно:"
 msgid "Proverbs available:"
 msgstr "Пословиц доступно:"
 
-msgid "Feel free to read the"
-msgstr "Вы можете ознакомиться с документацией"
+msgid "Feel free to read the %{docs}"
+msgstr "Вы можете ознакомиться с документацией %{docs}"
 
 msgid "docs"
 msgstr "здесь"

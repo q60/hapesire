@@ -1,0 +1,78 @@
+/! quotes API
+article
+  h4 = gettext.(current_locale, "Quotes API")
+
+  - text = gettext.(current_locale, "The following methods are supported")
+  /! /api/quotes methods
+  p #{text}:
+  /! routes
+  ol
+    = for {path, %{description: desc, params: params}} <- routes.quotes do
+      li
+        code = path
+        code.comment = " - #{desc}"
+      = unless params == [] do
+        ul
+          = for %{name: name, type: type, description: desc} <- params do
+            li
+              code.secondary = name
+              code.comment
+                = unless is_nil(desc) do
+                  = " - #{desc}"
+                = " [#{type}]"
+
+  - text = gettext.(current_locale, "The next languages are available [quotes]")
+  p #{text}:
+  /! languages
+  ol
+    li
+      code en
+      = dash
+      = gettext.(current_locale, "English")
+    li
+      code ru
+      = dash
+      = gettext.(current_locale, "Russian")
+
+  - text = gettext.(current_locale, "The default language is English")
+  p #{text}.
+
+
+/! proverbs API
+article
+  h4 = gettext.(current_locale, "Proverbs API")
+
+  - text = gettext.(current_locale, "The following methods are supported")
+  /! /api/proverbs methods
+  p #{text}:
+  /! routes
+  ol
+    = for {path, %{description: desc, params: params}} <- routes.proverbs do
+      li
+        code = path
+        code.comment = " - #{desc}"
+      = unless params == [] do
+        ul
+          = for %{name: name, type: type, description: desc} <- params do
+            li
+              code.secondary = name
+              code.comment
+                = unless is_nil(desc) do
+                  = " - #{desc}"
+                = " [#{type}]"
+
+  - text = gettext.(current_locale, "The next languages are available [proverbs]")
+  p #{text}:
+  /! languages
+  ol
+    li
+      code en
+      = dash
+      = gettext.(current_locale, "English")
+    li
+      code zh
+      = dash
+      = gettext.(current_locale, "Chinese")
+
+  - text = gettext.(current_locale, "The default language is English")
+  p #{text}.

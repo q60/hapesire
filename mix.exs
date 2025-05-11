@@ -23,6 +23,7 @@ defmodule Hapesire.MixProject do
 
   defp deps do
     [
+      {:slime, "~> 1.0"},
       {:gettext, "~> 0.26"},
       {:ash_sqlite, "~> 0.2"},
       {:plug_cowboy, "~> 2.0"},

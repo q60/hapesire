@@ -1,0 +1,76 @@
+elixir:
+  name = ~s|<span class="name">hapësirë</span>|
+
+  more = ~s|<span class="secondary">#{gettext.(current_locale, "more")}</span>|
+
+  description = bgettext.(
+    current_locale,
+    "However, %{name} is not just a website, it has a %{json_api} endpoint available at %{endpoint}",
+    name: name,
+    json_api: ~s|<a class="link" href="https://jsonapi.org/">JSON:API</a>|,
+    endpoint: ~s|<a class="link" href="https://hapesire.kira.computer/api">https://hapesire.kira.computer/api</a>|
+  )
+
+  docs = ~s|<a class="link" href="/docs?lang=#{current_locale}">#{gettext.(current_locale, "docs")}</a>|
+
+
+/! quote display block
+div#quote
+  /! text
+  p.quote-text = quote_text
+
+  div
+    = unless is_nil(quote_author) do
+      /! author
+      p.quote-author
+        span style="user-select: none;"
+          = "#{dash} #{quote_author}"
+
+    /! buttons block
+    div#quote-buttons
+      a#more.button href="?lang=#{current_locale}"
+        = gettext.(current_locale, "more")
+
+
+/! information
+article
+  h4 = gettext.(current_locale, "A few words")
+
+  /! explanation
+  p
+    - text = bgettext.(current_locale, "%{name} is a collection of famous inspiring quotes by different authors", name: name)
+    = "#{text}."
+
+  /! about the website
+  p
+    - text = bgettext.(current_locale, "Take a look at this unsophisticated basic website. Try pressing the %{more} button to see another quote. May you come across an expression that strikes a chord with you", more: more)
+    = "#{text}."
+
+  /! box with a piece of description and records count
+  div#info-box
+    /! description
+    p#description
+      = "#{description}."
+
+    /! records count
+    table#record-count
+      tbody
+        /! quotes count
+        tr
+          td.left
+            = gettext.(current_locale, "Quotes available:")
+          td.right
+            code = count.quotes
+
+        /! proverbs count
+        tr
+          td.left
+            = gettext.(current_locale, "Proverbs available:")
+          td.right
+            code = count.proverbs
+
+
+  /! docs
+  p
+    - text = bgettext.(current_locale, "Feel free to read the %{docs}", docs: docs)
+    = "#{text}."

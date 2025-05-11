@@ -17,7 +17,9 @@ config :ash_json_api,
 
 config :hapesire,
   ash_domains: [Hapesire.Quotations],
-  ecto_repos: [Hapesire.Repo]
+  ecto_repos: [Hapesire.Repo],
+  static: "priv/static",
+  locales: ~w(en ru)
 
 config :spark,
   formatter: [

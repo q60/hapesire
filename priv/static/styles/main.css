@@ -182,6 +182,7 @@ a.link {
   font-weight: 400;
   color: var(--tertiary-color);
   text-decoration: underline;
+  white-space: nowrap;
 }
 
 code {
@@ -292,18 +293,27 @@ main {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
 
   #description {
     max-width: 70%;
   }
 
   #record-count {
-    list-style: none;
-    text-align: end;
     border-width: 3px;
     border-style: dashed;
     border-color: var(--quaternary-color);
     padding: .4em;
+
+    tr {
+      td.left {
+        text-align: start;
+      }
+
+      td.right {
+        text-align: end;
+      }
+    }
   }
 }
 

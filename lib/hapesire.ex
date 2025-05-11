@@ -13,6 +13,22 @@ defmodule Hapesire do
   end
 
   @doc """
+  Returns path with static assets from config.
+  """
+  @spec static() :: String.t()
+  def static do
+    Application.get_env(:hapesire, :static, "priv/static")
+  end
+
+  @doc """
+  Returns locales from config.
+  """
+  @spec locales() :: [String.t()]
+  def locales do
+    Application.get_env(:hapesire, :locales, ~w(en))
+  end
+
+  @doc """
   Returns records count of a table.
   """
   @spec record_count(String.t()) :: non_neg_integer()
