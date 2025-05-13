@@ -7,9 +7,11 @@ It's available at https://hapesire.kira.computer/.
 
 ## Info
 
-This project comes batteries included with ready to use sqlite database that I compiled. I hope you can find something useful for yourself. Overall, it's a nice project to look into Ash Framework usage for APIs. You can also find a rather unhinged way of managing Slime templates in `lib/hapesire_web/templates.ex`.
+This project comes batteries included with ready to use sqlite database (as a mix dependency) that I compiled. I hope you can find something useful for yourself. Overall, it's a nice project to look into Ash Framework usage for APIs. You can also find a rather unhinged way of managing Slime templates in `lib/hapesire_web/templates.ex`.
 
 API docs can be found here - https://hapesire.kira.computer/docs.
+
+Repository with the database file and corresponding CSVs can be found on Codeberg - https://codeberg.org/q60/hapesire-db.
 
 Here's some basic CLI client that supports this API - **[gigagei](https://github.com/q60/gigagei)**. Give it a try.
 

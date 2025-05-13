@@ -23,6 +23,7 @@ defmodule Hapesire.MixProject do
 
   defp deps do
     [
+      {:hapesire_db, app: false, compile: false, git: "https://codeberg.org/q60/hapesire-db", branch: "main"},
       {:slime, "~> 1.0"},
       {:gettext, "~> 0.26"},
       {:ash_sqlite, "~> 0.2"},

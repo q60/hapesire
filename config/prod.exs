@@ -1,5 +1,5 @@
 import Config
 
 config :hapesire, Hapesire.Repo,
-  database: "./priv/quotes.db",
+  database: "./deps/hapesire_db/collection.db",
   pool_size: 10
