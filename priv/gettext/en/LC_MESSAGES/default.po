@@ -19,26 +19,10 @@ msgstr ""
 msgid "The following methods are supported"
 msgstr ""
 
-msgid "The next languages are available [quotes]"
-msgstr "The next languages are available"
-
-msgid "The next languages are available [proverbs]"
-msgstr "The next languages are available"
-
-
-msgid "English"
-msgstr ""
-
-msgid "Russian"
-msgstr ""
-
 msgid "The default language is English"
 msgstr ""
 
 msgid "Proverbs API"
-msgstr ""
-
-msgid "Chinese"
 msgstr ""
 
 msgid "Quotes available:"

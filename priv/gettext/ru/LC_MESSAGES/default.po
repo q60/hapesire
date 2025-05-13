@@ -19,27 +19,11 @@ msgstr "API цитат"
 msgid "The following methods are supported"
 msgstr "На данный момент поддерживаются следующие методы"
 
-msgid "The next languages are available [quotes]"
-msgstr "Цитаты доступны на следующих языках"
-
-msgid "The next languages are available [proverbs]"
-msgstr "Пословицы доступны на следующих языках"
-
-
-msgid "English"
-msgstr "английский"
-
-msgid "Russian"
-msgstr "русский"
-
 msgid "The default language is English"
 msgstr "Язык по умолчанию &mdash; английский"
 
 msgid "Proverbs API"
 msgstr "API пословиц"
-
-msgid "Chinese"
-msgstr "китайский"
 
 msgid "Quotes available:"
 msgstr "Цитат доступно:"

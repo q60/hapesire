@@ -48,11 +48,18 @@ defmodule HapesireWeb do
     |> Enum.filter(fn parameter -> parameter.in == :path and parameter.required end)
     |> Enum.map(fn parameter ->
       schema = Map.from_struct(parameter.schema)
+      %{type: type, enum: enum} = schema
+
+      type =
+        case enum do
+          nil -> "#{type}"
+          one_of -> "one of: #{Enum.map_join(one_of, " | ", &inspect/1)}"
+        end
 
       %{
         name: parameter.name,
         description: parameter.description,
-        type: schema.type
+        type: type
       }
     end)
   end
