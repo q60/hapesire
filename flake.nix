@@ -16,7 +16,7 @@
       hapesire-deps = beam-packages.fetchMixDeps {
         pname = "mix-deps-hapesire";
         inherit src version;
-        hash = "sha256-0l9Jxj90ZQK7zWb9XyKvpAh5mitKkAallHrfQHt5NJk=";
+        hash = "sha256-jTpEENjgluvODEl2VVnJd3+mY1zBhyosYQLns4W8FGY=";
       };
 
       hapesire = beam-packages.mixRelease {
@@ -39,11 +39,6 @@
           default = 4000;
           description = "port hapësirë runs on";
         };
-
-        database = lib.mkOption {
-          type = lib.types.path;
-          description = "path to hapësirë database";
-        };
       };
 
       config = lib.mkIf cfg.enable {
@@ -56,7 +51,7 @@
 
           environment = {
             HAPESIRE_PORT = toString cfg.port;
-            HAPESIRE_DB = toString cfg.database;
+            HAPESIRE_DB = "${hapesire-deps}/hapesire_db/collection.db";
             RELEASE_COOKIE = "a";
           };
 

@@ -21,6 +21,9 @@ config :hapesire,
   static: "priv/static",
   locales: ~w(en ru)
 
+config :hapesire, Hapesire.Repo,
+  journal_mode: :delete
+  
 config :spark,
   formatter: [
     remove_parens?: true,
