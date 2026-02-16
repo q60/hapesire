@@ -23,7 +23,10 @@
         pname = "hapesire";
         version = "0.2.0";
 
-        ELIXIR_MAKE_CACHE_DIR = "cache";
+        env = {
+          ELIXIR_MAKE_CACHE_DIR = "cache";
+        };
+
         src = ./.;
 
         mixFodDeps = hapesire-deps;
